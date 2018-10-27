@@ -1,0 +1,63 @@
+{
+  "name": "experiment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "node": ">=9.11.2",
+  "scripts": {
+    "start": "",
+    "dev": "cross-env NODE_ENV=development nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worldpins/api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/worldpins/api/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "7.0.0",
+    "@babel/plugin-proposal-decorators": "7.0.0",
+    "@babel/plugin-proposal-do-expressions": "7.0.0",
+    "@babel/plugin-proposal-export-default-from": "7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.0.0",
+    "@babel/plugin-proposal-function-bind": "7.0.0",
+    "@babel/plugin-proposal-function-sent": "7.0.0",
+    "@babel/plugin-proposal-json-strings": "7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0",
+    "@babel/plugin-syntax-import-meta": "7.0.0",
+    "@babel/plugin-transform-runtime": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "7.0.0",
+    "@types/webpack-env": "^1.13.6",
+    "babel-loader": "8.0.2",
+    "cross-env": "^5.2.0",
+    "react-hot-loader": "4.3.6",
+    "source-map-loader": "0.2.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "3.0.3",
+    "webpack": "4.17.2",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.1.7"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs2": "7.0.0",
+    "@types/react": "^16.4.13",
+    "@types/react-dom": "^16.0.7",
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0"
+  },
+  "peerDependencies": {},
+  "homepage": "https://github.com/worldpins/api#readme"
+}
