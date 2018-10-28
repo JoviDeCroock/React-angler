@@ -4,46 +4,39 @@ import { uglify } from "rollup-plugin-uglify"
 import replace from "rollup-plugin-replace"
 
 function getEnvVariables(production) {
-    return { "process.env.NODE_ENV": production ? "'production'" : "'development'" }
+  return { "process.env.NODE_ENV": production ? "'production'" : "'development'" }
 }
 
 const input = "./lib/index.js"
 const externals = ["react", "react-dom"]
-const globals = {
-    react: "react",
-    "react-dom": "react-dom"
-}
 
 export default [
-    {
-        input: input,
-        output: {
-            file: "./dist/react-angler.js",
-            format: "cjs",
-            globals: globals
-        },
-        external: externals,
-        plugins: [resolve(), filesize()]
+  {
+    input: input,
+    output: {
+      file: "./dist/react-angler.js",
+      format: "cjs",
     },
-    {
-        input: input,
-        output: {
-            file: "./dist/react-angler.umd.js",
-            format: "umd",
-            globals: globals,
-            name: "mobxStateTree"
-        },
-        external: externals,
-        plugins: [resolve(), replace(getEnvVariables(true)), uglify(), filesize()]
+    external: externals,
+    plugins: [resolve(), filesize()]
+  },
+  {
+    input: input,
+    output: {
+      file: "./dist/react-angler.umd.js",
+      format: "umd",
+      name: "react-angler"
     },
-    {
-        input: input,
-        output: {
-            file: "./dist/react-angler.module.js",
-            format: "es",
-            globals: globals
-        },
-        external: externals,
-        plugins: [resolve(), filesize()]
-    }
+    external: externals,
+    plugins: [resolve(), replace(getEnvVariables(true)), uglify(), filesize()]
+  },
+  {
+    input: input,
+    output: {
+      file: "./dist/react-angler.module.js",
+      format: "es",
+    },
+    external: externals,
+    plugins: [resolve(), filesize()]
+  }
 ]
