@@ -5,12 +5,11 @@ import onUpdate from "./onUpdate";
 interface InitLifeCycles {
   didMount?: () => void;
   didUnmount?: () => void;
-  didUpdate?: (prevProps: Object, props: Object) => void;
-  props?: Object;
+  didUpdate?: () => void;
 }
 
-export default ({ didMount, didUnmount, didUpdate, props }: InitLifeCycles = {}) => {
+export default ({ didMount, didUnmount, didUpdate }: InitLifeCycles = {}) => {
   onMount(didMount);
   onUnmount(didUnmount);
-  onUpdate(props, didUpdate);
+  onUpdate(didUpdate);
 };

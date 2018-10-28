@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+// TODO: test and improve.
 const TAG_PROPERTIES = {
   CSS_TEXT: "cssText",
   INNER_HTML: "innerHTML",
