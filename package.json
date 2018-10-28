@@ -1,62 +1,35 @@
 {
-  "name": "experiment",
-  "version": "1.0.0",
+  "name": "react-angler",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "node": ">=9.11.2",
   "sideEffects": false,
   "scripts": {
-    "start": "",
-    "dev": "cross-env NODE_ENV=development nodemon main.js"
+    "build": "tsc && rollup -c"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/worldpins/api.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/worldpins/api/issues"
-  },
+  "main": "dist/react-angler.js",
+  "umd:main": "dist/react-angler.umd.js",
+  "module": "dist/react-angler.module.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "7.0.0",
-    "@babel/plugin-proposal-decorators": "7.0.0",
-    "@babel/plugin-proposal-do-expressions": "7.0.0",
-    "@babel/plugin-proposal-export-default-from": "7.0.0",
-    "@babel/plugin-proposal-export-namespace-from": "7.0.0",
-    "@babel/plugin-proposal-function-bind": "7.0.0",
-    "@babel/plugin-proposal-function-sent": "7.0.0",
-    "@babel/plugin-proposal-json-strings": "7.0.0",
-    "@babel/plugin-proposal-logical-assignment-operators": "7.0.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "7.0.0",
-    "@babel/plugin-proposal-numeric-separator": "7.0.0",
-    "@babel/plugin-proposal-optional-chaining": "7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "7.0.0",
-    "@babel/plugin-syntax-import-meta": "7.0.0",
-    "@babel/plugin-transform-runtime": "7.0.0",
-    "@babel/preset-env": "7.0.0",
-    "@babel/preset-react": "7.0.0",
-    "@babel/preset-typescript": "7.0.0",
-    "@types/webpack-env": "^1.13.6",
-    "babel-loader": "8.0.2",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
     "cross-env": "^5.2.0",
-    "source-map-loader": "0.2.4",
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0",
+    "rollup": "^0.66.6",
+    "rollup-plugin-filesize": "^5.0.1",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-uglify": "^6.0.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-react": "^3.6.0",
-    "typescript": "3.0.3",
-    "webpack": "4.17.2",
-    "webpack-cli": "3.1.0"
+    "typescript": "3.1.3"
   },
-  "dependencies": {
-    "@babel/runtime-corejs2": "7.0.0",
-    "@types/react": "^16.4.18",
-    "@types/react-dom": "^16.0.9",
+  "dependencies": {},
+  "peerDependencies": {
     "react": "16.7.0-alpha.0",
     "react-dom": "16.7.0-alpha.0"
-  },
-  "peerDependencies": {},
-  "homepage": "https://github.com/worldpins/api#readme"
+  }
 }

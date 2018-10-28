@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default (title) => {
+export default (title: string) => {
   useEffect(() => {
     document.title = title;
   }, [title])

@@ -5,8 +5,8 @@ export default (initialValue: Array<any> = []) => {
   return {
     value,
     setValue,
-    add: element => setValue([...value, element]),
+    add: (element: any) => setValue([...value, element]),
     clear: () => setValue([]),
-    remove: element => setValue(value.filter(e => e !== element))
+    remove: (element: any) => setValue(value.filter((e: any) => e !== element))
   };
 };

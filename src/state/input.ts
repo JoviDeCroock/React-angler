@@ -1,11 +1,11 @@
-import { useState } from "react";
+import * as React from "react";
 
 export default (initial: string = "") => {
-  const [value, setValue] = useState(initial);
+  const [value, setValue] = React.useState(initial);
   return {
     value,
     setValue,
     clear: () => setValue(""),
-    onChange: e => setValue(e.currentTarget.value)
+    onChange: (e: React.FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value)
   };
 };

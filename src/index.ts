@@ -1,4 +1,5 @@
 export { default as useComponentSize } from './components/componentSize';
+export { default as useWindowSize } from './dom/windowSize';
 export { default as useLifecycles } from './lifecycles/initLifecycles';
 export { default as useDidMount } from './lifecycles/onMount';
 export { default as useDidUnmount } from './lifecycles/onUnmount';
@@ -9,4 +10,5 @@ export { default as useCounter } from './state/counter';
 export { default as useInput } from './state/input';
 export { default as useState } from './state/state';
 export { default as useToggle } from './state/toggle';
+export { default as useTitle } from './dom/title';
 export { default as usePreviousValue } from './utils/getPreviousValue';
