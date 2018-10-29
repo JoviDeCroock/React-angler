@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-// NOT READY FOR PRODUCTION
+// TODO: NOT READY FOR PRODUCTION
 const TAG_PROPERTIES = {
   CSS_TEXT: "cssText",
   INNER_HTML: "innerHTML",
