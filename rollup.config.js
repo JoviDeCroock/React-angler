@@ -1,42 +1,52 @@
-import filesize from "rollup-plugin-filesize"
-import resolve from "rollup-plugin-node-resolve"
-import { uglify } from "rollup-plugin-uglify"
-import replace from "rollup-plugin-replace"
+import filesize from "rollup-plugin-filesize";
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import { uglify } from "rollup-plugin-uglify";
+import replace from "rollup-plugin-replace";
 
 function getEnvVariables(production) {
-  return { "process.env.NODE_ENV": production ? "'production'" : "'development'" }
+  return { "process.env.NODE_ENV": production ? "'production'" : "'development'" };
 }
 
-const input = "./lib/index.js"
-const externals = ["react", "react-dom"]
+const input = "./lib/index.js";
+const external = ['react'];
 
 export default [
   {
-    input: input,
+    input,
     output: {
       file: "./dist/react-angler.js",
       format: "cjs",
+      globals: {
+        react: "React",
+      },
     },
-    external: externals,
-    plugins: [resolve(), filesize()]
+    external,
+    plugins: [resolve(), filesize(), commonjs()],
   },
   {
-    input: input,
+    input,
     output: {
       file: "./dist/react-angler.umd.js",
       format: "umd",
-      name: "react-angler"
+      name: "react-angler",
+      globals: {
+        react: "React",
+      },
     },
-    external: externals,
-    plugins: [resolve(), replace(getEnvVariables(true)), uglify(), filesize()]
+    external,
+    plugins: [resolve(), replace(getEnvVariables(true)), uglify(), filesize(), commonjs()],
   },
   {
-    input: input,
+    input,
     output: {
       file: "./dist/react-angler.module.js",
       format: "es",
+      globals: {
+        react: "React",
+      },
     },
-    external: externals,
-    plugins: [resolve(), filesize()]
+    external,
+    plugins: [resolve(), filesize(), commonjs()],
   }
-]
+];

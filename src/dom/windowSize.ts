@@ -1,8 +1,8 @@
-import { useState, useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 interface Dimensions {
-  height: Number,
-  width: Number,
+  height: number,
+  width: number,
 }
 
 const getSize = () => {

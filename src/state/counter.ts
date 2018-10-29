@@ -7,9 +7,9 @@ interface CounterOptions {
 export default (initial: number = 0, { step = 1 }: CounterOptions = {}) => {
   const [value, setValue] = useState(initial);
   return {
-    value,
-    setValue,
+    decrease: () => setValue(value - step),
     increase: () => setValue(value + step),
-    decrease: () => setValue(value - step)
+    setValue,
+    value,
   };
 };

@@ -1,8 +1,8 @@
-import { useState, useLayoutEffect } from 'react';
+import * as React from 'react';
 
 interface Dimensions {
-  height: Number,
-  width: Number,
+  height: number,
+  width: number,
 }
 
 const getSize = (el: any) => {
@@ -19,9 +19,9 @@ const reactToResize = (ref: any, setSize: (dimensions: Dimensions) => void) => {
 }
 
 export default (ref: React.RefObject<HTMLInputElement>) => {
-  const [size, setSize] = useState(ref.current);
+  const [size, setSize] = React.useState(ref.current);
   // Everytime the DOM is done rendering this is triggered.
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     reactToResize(ref, setSize);
     const boundReactToResize = reactToResize.bind(null, ref, setSize);
     // Hook up the listener
