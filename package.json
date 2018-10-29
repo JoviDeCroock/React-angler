@@ -9,11 +9,12 @@
   "main": "dist/react-angler.js",
   "umd:main": "dist/react-angler.umd.js",
   "module": "dist/react-angler.module.js",
-  "typings": "dist/index.d.ts",
+  "typings": "lib/index.d.ts",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^16.4.18",
     "cross-env": "^5.2.0",
+    "react": "^16.7.0-alpha.0",
     "rollup": "^0.66.6",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-filesize": "^5.0.1",
