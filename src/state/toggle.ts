@@ -6,7 +6,7 @@ export default (initial: boolean = true) => {
     setFalse: () => setValue(false),
     setTrue: () => setValue(true),
     setValue,
-    toggle: () => setValue(!value),
+    toggle: () => setValue((val) => !val),
     value,
   };
 };
