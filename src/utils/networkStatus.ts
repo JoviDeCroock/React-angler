@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import useToggle from '../state/toggle';
 
-export default () => {
+export default (): boolean => {
   const { value: status, setTrue: goOnline, setFalse: goOffline } = useToggle(navigator.onLine);
 
   useEffect(() => {
