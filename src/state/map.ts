@@ -6,11 +6,11 @@ interface Map {
   set: (key: string, value: any) => void;
 }
 
-export default (initial: object): Map => {
+export default (initial: { [key: string]: any }): Map => {
   const [map, setValue] = useState(initial);
   return {
-    get: (key) => map[key],
-    getMultiple: (keys) => keys.reduce((acc, key) => [...acc, map[key]], []),
+    get: (key: string) => map[key],
+    getMultiple: (keys) => keys.reduce((acc: Array<any>, key: string) => [...acc, map[key]], []),
     set: (key, value) => setValue((val) => ({ ...val, [key]: value }))
   }
 }
