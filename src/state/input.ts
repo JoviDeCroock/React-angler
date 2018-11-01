@@ -8,7 +8,7 @@ interface Input {
 }
 
 export default (initial: string = ""): Input => {
-  const [value, setValue] = React.useState(initial);
+  const { 0: value, 1: setValue } = React.useState(initial);
   return {
     clear: () => setValue(""),
     onChange: (e: React.FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value),

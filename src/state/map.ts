@@ -7,7 +7,7 @@ interface Map {
 }
 
 export default (initial: { [key: string]: any }): Map => {
-  const [map, setValue] = useState(initial);
+  const { 0: map, 1: setValue } = useState(initial);
   return {
     get: (key: string) => map[key],
     getMultiple: (keys) => keys.reduce((acc: Array<any>, key: string) => [...acc, map[key]], []),

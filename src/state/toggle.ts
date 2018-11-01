@@ -9,7 +9,7 @@ interface Toggle {
 }
 
 export default (initial: boolean = true): Toggle => {
-  const [value, setValue] = useState(initial);
+  const { 0: value, 1: setValue } = useState(initial);
   return {
     setFalse: () => setValue(false),
     setTrue: () => setValue(true),

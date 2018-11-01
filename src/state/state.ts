@@ -6,7 +6,7 @@ interface State {
 }
 
 export default (initial: object = {}): State => {
-  const [value, setValue] = useState(initial);
+  const { 0: value, 1: setValue } = useState(initial);
   return {
     setState: (state?: object, cb?: (newState: object) => void) => {
       let newState = {};

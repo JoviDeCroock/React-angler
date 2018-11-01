@@ -11,7 +11,8 @@ interface UseArray {
 }
 
 export default (initialValue: Array<any> = []): UseArray => {
-  const [value, setValue] = useState(initialValue);
+  // TODO: optimize all like this:
+  const { 0: value, 1: setValue  } = useState(initialValue);
   return {
     add: (element: any) => setValue((val: any) => [...val, element]),
     clear: () => setValue([]),

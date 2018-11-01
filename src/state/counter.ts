@@ -12,7 +12,7 @@ interface Counter {
 }
 
 export default (initial: number = 0, { step = 1 }: CounterOptions = {}): Counter => {
-  const [value, setValue] = useState(initial);
+  const { 0: value, 1: setValue } = useState(initial);
   return {
     decrease: () => setValue((val) => val - step),
     increase: () => setValue((val) => val + step),
