@@ -1,13 +1,23 @@
 import { useState } from "react";
 
-export default (initialValue: Array<any> = []) => {
+interface Payload {
+  add: (element: any) => void;
+  clear: () => void;
+  remove: (func: (value: Array<any>) => Array<any>) => void;
+  removeByElement: (element: any) => void;
+  removeByIndex: (index: number) => void;
+  setValue: (input: Array<any>) => void;
+  value: Array<any>;
+}
+
+export default (initialValue: Array<any> = []): Payload => {
   const [value, setValue] = useState(initialValue);
   return {
-    add: (element: any) => setValue([...value, element]),
-    clear: () => setValue([]),
-    remove: (func: (value: Array<any>) => Array<any>) => setValue(func(value)),
-    removeByElement: (element: any) => setValue(value.filter((e: any) => e !== element)),
-    removeByIndex: (index: number) => setValue(value.filter((e: any, i: number) => i !== index)),
+    add: (element) => { setValue([...value, element]) },
+    clear: () => { setValue([]) },
+    remove: (func) => { setValue(func(value)) },
+    removeByElement: (element) => setValue(value.filter((e: any) => e !== element)),
+    removeByIndex: (index) => setValue(value.filter((e: any, i: number) => i !== index)),
     setValue,
     value,
   };

@@ -12,12 +12,17 @@ const getSize = () => {
   }
 }
 
-const reactToResize = (setSize: (dimensions: Dimensions) => void) => {
+const reactToResize = (setSize: (currentDimensions: Dimensions) => void) => {
   setSize(getSize());
 }
 
+const initialDimensions: Dimensions = {
+  height: 0,
+  width: 0
+}
+
 export default () => {
-  const [size, setSize] = useState();
+  const [size, setSize] = useState(initialDimensions);
   // Everytime the DOM is done rendering this is triggered.
   useLayoutEffect(() => {
     reactToResize(setSize);
