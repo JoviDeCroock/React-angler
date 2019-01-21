@@ -4,11 +4,18 @@ interface CounterOptions {
   step?: number
 }
 
-export default (initial: number = 0, { step = 1 }: CounterOptions = {}) => {
-  const [value, setValue] = useState(initial);
+interface Counter {
+  decrease: () => void;
+  increase: () => void;
+  setValue: (value: number | ((val: number) => number)) => void;
+  value: number;
+}
+
+export default (initial: number = 0, { step = 1 }: CounterOptions = {}): Counter => {
+  const { 0: value, 1: setValue } = useState(initial);
   return {
-    decrease: () => setValue(value - step),
-    increase: () => setValue(value + step),
+    decrease: () => setValue((val) => val - step),
+    increase: () => setValue((val) => val + step),
     setValue,
     value,
   };

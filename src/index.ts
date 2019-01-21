@@ -13,3 +13,4 @@ export { default as useToggle } from './state/toggle';
 export { default as useTitle } from './dom/title';
 export { default as usePreviousValue } from './utils/getPreviousValue';
 export { default as useNetworkStatus } from './utils/networkStatus';
+export { default as useMap } from './state/map';

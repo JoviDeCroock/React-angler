@@ -18,11 +18,11 @@ const reactToResize = (setSize: (currentDimensions: Dimensions) => void) => {
 
 const initialDimensions: Dimensions = {
   height: 0,
-  width: 0
+  width: 0,
 }
 
-export default () => {
-  const [size, setSize] = useState(initialDimensions);
+export default (): Dimensions => {
+  const { 0: size, 1: setSize } = useState(initialDimensions);
   // Everytime the DOM is done rendering this is triggered.
   useLayoutEffect(() => {
     reactToResize(setSize);

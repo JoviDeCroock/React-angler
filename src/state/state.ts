@@ -1,11 +1,19 @@
 import { useState } from "react";
 
-export default (initial: object = {}) => {
-  const [value, setValue] = useState(initial);
+interface State {
+  setState: (state?: object, cb?: (newState: object) => void) => void;
+  state: object;
+}
+
+export default (initial: object = {}): State => {
+  const { 0: value, 1: setValue } = useState(initial);
   return {
     setState: (state?: object, cb?: (newState: object) => void) => {
-      const newState = { ...value, ...state };
-      setValue(newState);
+      let newState = {};
+      setValue((val) => {
+        newState = { ...val, ...state }
+        return newState
+      });
       if (cb) {
         cb(newState);
       }
