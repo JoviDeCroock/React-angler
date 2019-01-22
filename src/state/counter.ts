@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from "react";
 
 interface CounterOptions {
   step?: number
@@ -12,10 +12,10 @@ interface Counter {
 }
 
 export default (initial: number = 0, { step = 1 }: CounterOptions = {}): Counter => {
-  const { 0: value, 1: setValue } = useState(initial);
+  const { 0: value, 1: setValue } = React.useState(initial);
   return {
-    decrease: () => setValue((val) => val - step),
-    increase: () => setValue((val) => val + step),
+    decrease: React.useCallback(() => setValue((val) => val - step), [setValue]),
+    increase: React.useCallback(() => setValue((val) => val + step), [setValue]),
     setValue,
     value,
   };
