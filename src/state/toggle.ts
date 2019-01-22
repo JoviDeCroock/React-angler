@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from "react";
 
 interface Toggle {
   setFalse: () => void;
@@ -9,12 +9,12 @@ interface Toggle {
 }
 
 export default (initial: boolean = true): Toggle => {
-  const { 0: value, 1: setValue } = useState(initial);
+  const { 0: value, 1: setValue } = React.useState(initial);
   return {
-    setFalse: () => setValue(false),
-    setTrue: () => setValue(true),
+    setFalse: React.useCallback(() => setValue(false), [setValue]),
+    setTrue: React.useCallback(() => setValue(true), [setValue]),
     setValue,
-    toggle: () => setValue((val) => !val),
+    toggle: React.useCallback(() => setValue((val) => !val), [setValue]),
     value,
   };
 };
