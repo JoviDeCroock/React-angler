@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from "react";
 
 interface State {
   setState: (state?: object, cb?: (newState: object) => void) => void;
@@ -6,18 +6,15 @@ interface State {
 }
 
 export default (initial: object = {}): State => {
-  const { 0: value, 1: setValue } = useState(initial);
+  const { 0: value, 1: setValue } = React.useState(initial);
   return {
-    setState: (state?: object, cb?: (newState: object) => void) => {
-      let newState = {};
+    setState: React.useCallback((state, cb) => {
       setValue((val) => {
-        newState = { ...val, ...state }
+        const newState = { ...val, ...state }
+        if (cb) { cb(newState) }
         return newState
       });
-      if (cb) {
-        cb(newState);
-      }
-    },
+    }, [setValue]),
     state: value,
   };
 };
