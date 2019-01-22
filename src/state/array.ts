@@ -1,4 +1,4 @@
-import { useState } from "react";
+import * as React from "react";
 
 interface UseArray {
   add: (element: any) => void;
@@ -11,14 +11,13 @@ interface UseArray {
 }
 
 export default (initialValue: Array<any> = []): UseArray => {
-  // TODO: optimize all like this:
-  const { 0: value, 1: setValue  } = useState(initialValue);
+  const { 0: value, 1: setValue  } = React.useState(initialValue);
   return {
-    add: (element) => setValue((val) => [...val, element]),
-    clear: () => setValue([]),
-    remove: (func) => setValue((val) => func(val)),
-    removeByElement: (element) => setValue((val) => val.filter((e) => e !== element)),
-    removeByIndex: (index) => setValue((val) => val.filter((e, i) => i !== index)),
+    add: React.useCallback((element) => setValue((val) => [...val, element]), [setValue]),
+    clear: React.useCallback(() => setValue(() => []), [setValue]),
+    remove: React.useCallback((func) => setValue((val) => func(val)), [setValue]),
+    removeByElement: React.useCallback((element) => setValue((val) => val.filter((e) => e !== element)), [setValue]),
+    removeByIndex: React.useCallback((index) => setValue((val) => val.filter((e, i) => i !== index)), [setValue]),
     setValue,
     value,
   };
