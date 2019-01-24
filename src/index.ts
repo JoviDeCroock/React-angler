@@ -1,4 +1,7 @@
+export { default as useActive } from './components/active';
 export { default as useComponentSize } from './components/componentSize';
+export { default as useFocus } from './components/focus';
+export { default as useHover } from './components/hover';
 export { default as useWindowSize } from './dom/windowSize';
 export { default as useLifecycles } from './lifecycles/initLifecycles';
 export { default as useDidMount } from './lifecycles/onMount';
