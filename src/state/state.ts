@@ -5,16 +5,12 @@ interface State {
   state: object;
 }
 
-export default (initial: object = {}): State => {
-  const { 0: value, 1: setValue } = React.useState(initial);
+export default (initial?: object): State => {
+  const { 0: value, 1: setValue } = React.useState(initial || {});
   return {
-    setState: React.useCallback((state, cb) => {
-      setValue((val) => {
-        const newState = { ...val, ...state }
-        if (cb) { cb(newState) }
-        return newState
-      });
-    }, [setValue]),
+    setState: React.useCallback((state) => {
+      setValue((val) => ({ ...val, ...state }))
+    }, []),
     state: value,
   };
 };

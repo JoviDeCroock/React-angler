@@ -8,13 +8,13 @@ interface Toggle {
   value: boolean;
 }
 
-export default (initial: boolean = true): Toggle => {
-  const { 0: value, 1: setValue } = React.useState(initial);
+export default (initial?: boolean): Toggle => {
+  const { 0: value, 1: setValue } = React.useState(initial || false);
   return {
-    setFalse: React.useCallback(() => setValue(false), [setValue]),
-    setTrue: React.useCallback(() => setValue(true), [setValue]),
+    setFalse: React.useCallback(() => setValue(() => false), []),
+    setTrue: React.useCallback(() => setValue(() => true), []),
     setValue,
-    toggle: React.useCallback(() => setValue((val) => !val), [setValue]),
+    toggle: React.useCallback(() => setValue((val) => !val), []),
     value,
   };
 };
