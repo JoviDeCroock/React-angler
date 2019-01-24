@@ -18,8 +18,14 @@ const reactToResize = (ref: any, setSize: (dimensions: Dimensions) => void) => {
   }
 }
 
-export default (ref: React.RefObject<any>): Dimensions => {
-  const { 0: size, 1: setSize } = React.useState(ref.current);
+const initialDimensions: Dimensions = {
+  height: 0,
+  width: 0,
+}
+
+export default (): [React.RefObject<any>, Dimensions] => {
+  const ref = React.useRef(null);
+  const { 0: size, 1: setSize } = React.useState(initialDimensions);
   // Everytime the DOM is done rendering this is triggered.
   React.useLayoutEffect(() => {
     reactToResize(ref, setSize);
@@ -31,5 +37,5 @@ export default (ref: React.RefObject<any>): Dimensions => {
       window.removeEventListener('resize', boundReactToResize)
     }
   }, []);
-  return size;
+  return [ref, size];
 }

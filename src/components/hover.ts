@@ -1,28 +1,23 @@
-import { useEffect, useRef } from 'react';
+import * as React from 'react';
 import useToggle from '../state/toggle';
 
-
-export default () => {
+export default (): [React.RefObject<any>, boolean] => {
   const { setFalse, setTrue, value } = useToggle(false);
+  const ref = React.useRef(null);
+  const handleMouseOver = React.useCallback(() => setTrue(), []);
+  const handleMouseOut = React.useCallback(() => setFalse(), []);
 
-  const ref = useRef(null);
-
-  const handleMouseOver = () => setTrue();
-  const handleMouseOut = () => setFalse();
-
-  useEffect(() => {
+  React.useEffect(() => {
     if (ref && ref.current) {
-      ref.current.addEventListener('mouseover', handleMouseOver);
-      ref.current.addEventListener('mouseout', handleMouseOut);
+      (ref.current as any).addEventListener('mouseover', handleMouseOver);
+      (ref.current as any).addEventListener('mouseout', handleMouseOut);
     }
-
     return () => {
       if (ref && ref.current) {
-        ref.current.removeEventListener('mouseover', handleMouseOver);
-        ref.current.removeEventListener('mouseout', handleMouseOut);
+        (ref.current as any).removeEventListener('mouseover', handleMouseOver);
+        (ref.current as any).removeEventListener('mouseout', handleMouseOut);
       }
     };
   }, []);
-
   return [ref, value];
 }
