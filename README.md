@@ -1,115 +1,75 @@
 # React-angler
 
-Personally i love functionally approaching problems, that's why i challenged myself to make this little library. This was a good introduction to TypeScript aswell.
+[![npm version](https://badge.fury.io/js/react-angler.svg)](https://badge.fury.io/js/react-angler)
+[![Bundle size](https://badgen.net/bundlephobia/minzip/react-angler)](https://badgen.net/bundlephobia/minzip/react-angler)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![TypeScript](https://badges.frapsoft.com/typescript/awesome/typescript.png?v=101)](https://github.com/ellerbrock/typescript-badges/)
+
+Personally i love functionally approaching problems, that's why i challenged myself to make
+this little library. This was a good introduction to TypeScript aswell.
+
 Enjoy!
 
-## Supported hoooks
+## The hooks
 
-### useComponentSize
+### component-hooks
 
-Given a ref, this will keep you updated with the height and width of the component.
+| name  | input  | output  |
+|---|---|---|
+| useActive  | /  | [ref, isActive]  |
+| useComponentSize  | /  | [ref, { width, height }]  |
+| useFocus  |  / |  [ref, isFocussed] |
+| useHover  | /  | [ref, isHovered]  |
 
+Just put the received `ref` on a DOMNode and watch the magic happen.
 
-### useWindowSize
+### dom-hooks
 
-When called will keep you updated with the height and width of the window.
+| name  | input  | output  |
+|---|---|---|
+| useTitle  | title  |  / |
+| useWindowSize  |   | { width, height}  |
 
+useTitle sets the pageTitle in head.
 
-### useLifecycles
+### lifecycle-hooks
 
-You can provide your lifecycles to this method, these lifecycles being `onMount onUpdate onUnmount` with a function, then this function will be called.
+| name  | input  | output  |
+|---|---|---|
+| useDidMount  | function  | /  |
+| useDidUnmount  | function  | /  |
+| useDidUpdate | function, arrayOfWatchableProps  |  / |
 
+`useDidUpdate` is good combined with usePreviousValue to see prevProps and current props.
 
-### useDidMount
+### state-hooks
 
-Normal lifecycle way.
+| name  | input  | output  |
+|---|---|---|
+| useArray  | initialValue  |   |
+| useCounter  | initialValue  | { decrease, increase, setValue, value }  |
+| useInput  | initialValue  |  { clear, setValue, onChange, value } |
+| useMap  | initialValue | { get, getMultiple, remove, set, value }  |
+| useState  | initialValue  | { setState, state }  |
+| useToggle  | initialValue  | { toggle, setTrue, setFalse, value }  |
 
+inputs here are optional and will default to a reasonable default.
 
-### useDidUnmount
+#### Array-payload
 
-Normal lifecycle way.
+- add: takes an element and adds it.
+- clear: gives you a new empty array
+- makeUnique: removes duplicate values (by refference)
+- remove: given a function that returns a new array
+- removeByElement: given an element removes it
+- removeByIndex: given an index removes it
+- setValue: manually set the array
+- value: the array
 
+### util-hooks
 
-### useDidUpdate
-
-Normal lifecycle way.
-
-
-### usePreviousValue
-
-I like this one, given a value it will always return the previous instance.
-
-We can for example implement the classic componentDidUpdate like this:
-
-```javascript
-const Hello = (props) => {
-  const { id, name } = props;
-  const prevProps = usePreviousValue(props);
-  useLifecycles({
-    didMount: () => console.log(id, ' Mounted'),
-    didUnmount: () => console.log(id, ' Unmount'),
-    didUpdate: () => {
-      console.groupCollapsed(id);
-      console.log('PREV', prevProps);
-      console.log('NEXT', props);
-      console.log('Update');
-      console.groupEnd();
-    },
-  });
-
-  return <p>Hi {name}</p>;
-};
-```
-
-
-### useDocumentTitle
-
-Given a title, this will update the document title.
-
-
-### useArray
-
-Given an initialValue (array), this will return an object with:
-
-- add, you can pass an element to add to the array.
-- clear, makes the array empty.
-- remove, you can use this to manually provide a function to remove an element, bearing in mind that you should return a new array without that value.
-- removeByElement, pass in an element and it will be removed
-- removeByIndex, pass in an index and it will be removed.
-- value, the current value
-- setValue, when you want to change it yourself.
-
-
-### useCounter
-
-Given an initialValue (number) and optional options (step, this defaults to 1) this will return you:
-- increase, increases value by step
-- decrease, decreases value by step
-- value, the current value
-- setValue, when you want to change it yourself.
-
-
-### useMap
-
-TODO
-
-### useInput
-
-TODO
-
-### useState
-
-TODO
-
-### useToggle
-
-TODO
-
-### useTitle
-
-Given a string, this will update the title in your document.
-
-
-### useNetworkStatus
-
-This will keep you updated about the current networkStatus (returning a boolean, true meaning online false meaning offline).
+| name  | input  | output  |
+|---|---|---|
+| usePreviousValue  | any var  | previous value of that var  |
+| useLocalStorage  | key, initial | { setValue, value }  |
+| useNetworkStatus  |  / | currentNetworkStatus  |
