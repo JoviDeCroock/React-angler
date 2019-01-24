@@ -6,6 +6,7 @@
     "declaration": true,
     "module": "es2015",
     "removeComments": true,
+    "downlevelIteration": true,
     "outDir": "lib/",
     "noImplicitAny": true,
     "moduleResolution": "node",
@@ -19,9 +20,7 @@
     "importHelpers": true,
     "stripInternal": true,
     "lib": ["es6", "dom"],
-    "typeRoots": [
-      "typings.d.ts"
-    ]
+    "typeRoots": ["typings.d.ts"]
   },
   "files": ["src/index.ts"]
 }
