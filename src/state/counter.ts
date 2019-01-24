@@ -11,11 +11,12 @@ interface Counter {
   value: number;
 }
 
-export default (initial: number = 0, { step = 1 }: CounterOptions = {}): Counter => {
-  const { 0: value, 1: setValue } = React.useState(initial);
+export default (initial?: number, options?: CounterOptions): Counter => {
+  const { 0: value, 1: setValue } = React.useState(initial || 0);
+  if (!options) { options = { step: 1 } };
   return {
-    decrease: React.useCallback(() => setValue((val) => val - step), [setValue]),
-    increase: React.useCallback(() => setValue((val) => val + step), [setValue]),
+    decrease: React.useCallback(() => setValue((val) => val - ((options as any).step || 1)), []),
+    increase: React.useCallback(() => setValue((val) => val + ((options as any).step || 1)), []),
     setValue,
     value,
   };
