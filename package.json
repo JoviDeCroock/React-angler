@@ -1,6 +1,6 @@
 {
   "name": "react-angler",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Functional react hooks to solve everyday problems in functional components.",
   "sideEffects": false,
   "repository": "https://www.github.com/jovidecroock/React-angler",
@@ -10,26 +10,26 @@
     "functional"
   ],
   "scripts": {
-    "build": "tsc && rollup -c"
+    "build": "microbundle"
   },
   "main": "dist/react-angler.js",
   "browser": "dist/react-angler.umd.js",
   "module": "dist/react-angler.module.js",
   "typings": "lib/index.d.ts",
   "license": "MIT",
+  "mangle": {
+    "regex": "^_"
+  },
   "devDependencies": {
-    "@types/react": "^16.7.20",
-    "cross-env": "^5.2.0",
+    "@types/react": "16.7.20",
+    "cross-env": "5.2.0",
+    "microbundle": "0.9.0",
     "react": "16.8.0-alpha.1",
-    "rollup": "^0.66.6",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-filesize": "^5.0.1",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-uglify": "^6.0.0",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "tslint-react": "^3.6.0",
+    "react-dom": "16.8.0-alpha.1",
+    "tslib": "1.9.3",
+    "tslint": "5.12.1",
+    "tslint-config-prettier": "1.17.0",
+    "tslint-react": "3.6.0",
     "typescript": "3.1.3"
   },
   "dependencies": {},
