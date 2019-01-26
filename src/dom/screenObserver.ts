@@ -7,7 +7,7 @@ export default function useScreenObserver(margin: string): [React.RefObject<any>
     const observer = new IntersectionObserver(
       function intersectionObserver ({ 0: entry }) {
         setIntersecting(entry.isIntersecting);
-      }, { rootMargin: margin });
+      }, { rootMargin: margin || '0px' });
     if (ref.current) { observer.observe(ref.current) }
     return function dispose() { observer.unobserve(ref.current) };
   }, []);
