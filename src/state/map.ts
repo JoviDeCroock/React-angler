@@ -8,7 +8,7 @@ interface Map {
   value: object;
 }
 
-export default (initial?: { [key: string]: any }): Map => {
+export default function useMap(initial?: { [key: string]: any }): Map {
   const { 0: map, 1: setValue } = React.useState(initial || {});
   return {
     get: React.useCallback((key: string) => map[key], [map]),

@@ -7,7 +7,7 @@ interface Input {
   value: string;
 }
 
-export default (initial?: string): Input => {
+export default function useInput(initial?: string): Input {
   const { 0: value, 1: setValue } = React.useState(initial || "");
   return {
     clear: React.useCallback(() => setValue(() => ""), []),

@@ -11,7 +11,7 @@ interface UseArray {
   value: Array<any>;
 }
 
-export default (initialValue?: Array<any>): UseArray => {
+export default function useArray(initialValue?: Array<any>): UseArray {
   const { 0: value, 1: setValue  } = React.useState(initialValue || []);
   return {
     add: React.useCallback((element) => setValue((val) => [...val, element]), []),

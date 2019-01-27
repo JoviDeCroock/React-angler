@@ -5,7 +5,7 @@ interface State {
   state: object;
 }
 
-export default (initial?: object): State => {
+export default function useState(initial?: object): State {
   const { 0: value, 1: setValue } = React.useState(initial || {});
   return {
     setState: React.useCallback((state) => {

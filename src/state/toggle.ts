@@ -8,7 +8,7 @@ interface Toggle {
   value: boolean;
 }
 
-export default (initial?: boolean): Toggle => {
+export default function useToggle(initial?: boolean): Toggle {
   const { 0: value, 1: setValue } = React.useState(initial || false);
   return {
     setFalse: React.useCallback(() => setValue(() => false), []),
