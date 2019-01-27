@@ -5,14 +5,14 @@ interface Dimensions {
   width: number,
 }
 
-const getSize = () => {
+function getSize(): Dimensions {
   return {
     height: window.innerHeight,
     width: window.innerWidth,
   }
 }
 
-const reactToResize = (setSize: (currentDimensions: Dimensions) => void) => {
+function reactToResize(setSize: (currentDimensions: Dimensions) => void): void {
   setSize(getSize());
 }
 
@@ -21,16 +21,16 @@ const initialDimensions: Dimensions = {
   width: 0,
 }
 
-export default (): Dimensions => {
+export default function useWindowSize(): Dimensions {
   const { 0: size, 1: setSize } = useState(initialDimensions);
   // Everytime the DOM is done rendering this is triggered.
-  useLayoutEffect(() => {
+  useLayoutEffect(function setWindowSizeListeners() {
     reactToResize(setSize);
     const boundReactToResize = reactToResize.bind(null, setSize);
     // Hook up the listener
     window.addEventListener('resize', boundReactToResize);
     // Return a disposer.
-    return () => {
+    return function removeListeners() {
       window.removeEventListener('resize', boundReactToResize)
     }
   }, []);
