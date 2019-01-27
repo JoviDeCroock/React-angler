@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-export default (cb?: () => void, watchables?: Array<any>) => {
-  return useEffect(() => {
+export default function useDidUpdate(cb?: () => void, watchables?: Array<any>) {
+  useEffect(function updateEffect() {
     if(cb) { cb() }
   }, watchables);
 };

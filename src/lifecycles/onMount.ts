@@ -1,3 +1,7 @@
 import { useEffect } from "react";
 
-export default (cb?: () => void) => useEffect(() => cb && cb(), []);
+export default function useMount(cb?: () => void): void {
+  useEffect(function mountEffect() {
+    if(cb) { cb() }
+  }, []);
+}

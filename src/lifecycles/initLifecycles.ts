@@ -8,7 +8,7 @@ interface InitLifeCycles {
   didUpdate?: () => void;
 }
 
-export default ({ didMount, didUnmount, didUpdate }: InitLifeCycles = {}) => {
+export default function useLifecycles({ didMount, didUnmount, didUpdate }: InitLifeCycles = {}) {
   onMount(didMount);
   onUnmount(didUnmount);
   onUpdate(didUpdate);
