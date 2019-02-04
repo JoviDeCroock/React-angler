@@ -7,12 +7,12 @@ export default function useFocus(): [React.RefObject<any>, boolean] {
   const handleMouseDown = React.useCallback(() => setTrue(), []);
   const handleMouseUp = React.useCallback(() => setFalse(), []);
 
-  React.useLayoutEffect(function setFocusListeners() {
+  React.useLayoutEffect(() => {
     if (ref && ref.current) {
       (ref.current as any).addEventListener("focusin", handleMouseDown);
       (ref.current as any).addEventListener("focusout", handleMouseUp);
     }
-    return function removeListeners() {
+    return () => {
       if (ref && ref.current) {
         (ref.current as any).removeEventListener("focusin", handleMouseDown);
         (ref.current as any).removeEventListener("focusout", handleMouseUp);

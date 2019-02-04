@@ -7,12 +7,12 @@ export default function useHover(): [React.RefObject<any>, boolean] {
   const handleMouseOver = React.useCallback(() => setTrue(), []);
   const handleMouseOut = React.useCallback(() => setFalse(), []);
 
-  React.useEffect(function setHoverListeners() {
+  React.useEffect(() => {
     if (ref && ref.current) {
       (ref.current as any).addEventListener('mouseover', handleMouseOver);
       (ref.current as any).addEventListener('mouseout', handleMouseOut);
     }
-    return function removeListeners() {
+    return () => {
       if (ref && ref.current) {
         (ref.current as any).removeEventListener('mouseover', handleMouseOver);
         (ref.current as any).removeEventListener('mouseout', handleMouseOut);

@@ -7,12 +7,12 @@ export default function useActive(): [React.RefObject<any>, boolean] {
   const handleMouseDown = React.useCallback(() => setTrue(), []);
   const handleMouseUp = React.useCallback(() => setFalse(), []);
 
-  React.useEffect(function setActiveListeners() {
+  React.useEffect(() => {
     if (ref && ref.current) {
       (ref.current as any).addEventListener('mousedown', handleMouseDown);
       (ref.current as any).addEventListener('mouseup', handleMouseUp);
     }
-    return function removeListeners() {
+    return () => {
       if (ref && ref.current) {
         (ref.current as any).removeEventListener('mousedown', handleMouseDown);
         (ref.current as any).removeEventListener('mouseup', handleMouseUp);
