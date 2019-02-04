@@ -7,7 +7,7 @@ export default function useHover(): [React.RefObject<any>, boolean] {
   const handleMouseOver = React.useCallback(() => setTrue(), []);
   const handleMouseOut = React.useCallback(() => setFalse(), []);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (ref && ref.current) {
       (ref.current as any).addEventListener('mouseover', handleMouseOver);
       (ref.current as any).addEventListener('mouseout', handleMouseOut);

@@ -7,7 +7,7 @@ export default function useActive(): [React.RefObject<any>, boolean] {
   const handleMouseDown = React.useCallback(() => setTrue(), []);
   const handleMouseUp = React.useCallback(() => setFalse(), []);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (ref && ref.current) {
       (ref.current as any).addEventListener('mousedown', handleMouseDown);
       (ref.current as any).addEventListener('mouseup', handleMouseUp);
