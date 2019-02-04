@@ -1,6 +1,6 @@
 {
   "name": "react-angler",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Functional react hooks to solve everyday problems in functional components.",
   "sideEffects": false,
   "repository": "https://www.github.com/jovidecroock/React-angler",
