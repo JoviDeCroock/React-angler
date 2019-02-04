@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
 export default function useUnmount(cb?: () => void) {
-  useEffect(function setUnmount() {
-    return function unMount() {
+  useEffect(() => {
+    return () => {
       if(cb) { cb() }
     }
   }, []);
