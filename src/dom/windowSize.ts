@@ -24,13 +24,13 @@ const initialDimensions: Dimensions = {
 export default function useWindowSize(): Dimensions {
   const { 0: size, 1: setSize } = useState(initialDimensions);
   // Everytime the DOM is done rendering this is triggered.
-  useLayoutEffect(function setWindowSizeListeners() {
+  useLayoutEffect(() => {
     reactToResize(setSize);
     const boundReactToResize = reactToResize.bind(null, setSize);
     // Hook up the listener
     window.addEventListener('resize', boundReactToResize);
     // Return a disposer.
-    return function removeListeners() {
+    return () => {
       window.removeEventListener('resize', boundReactToResize)
     }
   }, []);
