@@ -1,6 +1,6 @@
 {
   "name": "react-angler",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Functional react hooks to solve everyday problems in functional components.",
   "sideEffects": false,
   "repository": "https://www.github.com/jovidecroock/React-angler",
@@ -26,8 +26,8 @@
     "bundlesize": "0.17.1",
     "cross-env": "5.2.0",
     "microbundle": "0.9.0",
-    "react": "16.8.0-alpha.1",
-    "react-dom": "16.8.0-alpha.1",
+    "react": "16.8.0",
+    "react-dom": "16.8.0",
     "tslib": "1.9.3",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.17.0",
@@ -36,8 +36,8 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "16.8.0-alpha.1",
-    "react-dom": "16.8.0-alpha.1"
+    "react": "16.8.0",
+    "react-dom": "16.8.0"
   },
   "bundlesize": [
     {
