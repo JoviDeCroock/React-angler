@@ -19,3 +19,4 @@ export { default as useNetworkStatus } from './utils/networkStatus';
 export { default as useMap } from './state/map';
 export { default as useBodyScrollLock } from './dom/lockBodyScroll';
 export { default as useClickOutside } from './dom/clickOutside';
+export { default as useIntersectionObserver } from './dom/screenObserver';
