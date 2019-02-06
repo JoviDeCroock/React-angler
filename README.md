@@ -1,9 +1,9 @@
 # React-angler
 
 [![npm version](https://badge.fury.io/js/react-angler.svg)](https://badge.fury.io/js/react-angler)
-[![Build Status](https://travis-ci.org/JoviDeCroock/react-angler.svg?branch=master)](https://travis-ci.org/JoviDeCroock/react-angler)
+[![Build Status](https://travis-ci.org/JoviDeCroock/React-angler.svg?branch=master)](https://travis-ci.org/JoviDeCroock/React-angler)
 [![Bundle size](https://badgen.net/bundlephobia/minzip/react-angler)](https://badgen.net/bundlephobia/minzip/react-angler)
-[![codecov](https://codecov.io/gh/JoviDeCroock/react-angler/branch/master/graph/badge.svg)](https://codecov.io/gh/JoviDeCroock/react-angler)
+[![codecov](https://codecov.io/gh/JoviDeCroock/React-angler/branch/master/graph/badge.svg)](https://codecov.io/gh/JoviDeCroock/React-angler)
 
 Personally i love functionally approaching problems, that's why i challenged myself to make
 this little library. This was a good introduction to TypeScript aswell.
