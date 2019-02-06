@@ -22,7 +22,7 @@
     "regex": "^_"
   },
   "devDependencies": {
-    "@types/react": "16.7.20",
+    "@types/react": "16.8.1",
     "bundlesize": "0.17.1",
     "cross-env": "5.2.0",
     "microbundle": "0.9.0",
