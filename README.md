@@ -1,8 +1,8 @@
 # React-angler
 
-[![npm version](https://badge.fury.io/js/reac-angler.svg)](https://badge.fury.io/js/reac-angler)
-[![Build Status](https://travis-ci.org/JoviDeCroock/reac-angler.svg?branch=master)](https://travis-ci.org/JoviDeCroock/reac-angler)
-[![Bundle size](https://badgen.net/bundlephobia/minzip/reac-angler)](https://badgen.net/bundlephobia/minzip/reac-angler)
+[![npm version](https://badge.fury.io/js/react-angler.svg)](https://badge.fury.io/js/react-angler)
+[![Build Status](https://travis-ci.org/JoviDeCroock/react-angler.svg?branch=master)](https://travis-ci.org/JoviDeCroock/react-angler)
+[![Bundle size](https://badgen.net/bundlephobia/minzip/react-angler)](https://badgen.net/bundlephobia/minzip/react-angler)
 [![codecov](https://codecov.io/gh/JoviDeCroock/react-angler/branch/master/graph/badge.svg)](https://codecov.io/gh/JoviDeCroock/react-angler)
 
 Personally i love functionally approaching problems, that's why i challenged myself to make
