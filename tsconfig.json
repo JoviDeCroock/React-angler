@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "compilerOptions": {
     "target": "es5",
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,
     "module": "es2015",
     "removeComments": true,
@@ -20,8 +20,9 @@
     "importHelpers": true,
     "stripInternal": true,
     "lib": ["es6", "dom"],
-    "typeRoots": ["typings.d.ts"]
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*"],
+  "exclude": ["src/**/__tests__/*.ts"],
   "files": ["src/index.ts"]
 }
