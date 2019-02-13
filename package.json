@@ -11,7 +11,9 @@
   ],
   "scripts": {
     "build": "microbundle",
-    "filesize": "bundlesize"
+    "filesize": "bundlesize",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "cross-env npm run test -- --watch"
   },
   "main": "dist/react-angler.js",
   "browser": "dist/react-angler.umd.js",
@@ -22,12 +24,18 @@
     "regex": "^_"
   },
   "devDependencies": {
+    "@types/jest": "24.0.3",
     "@types/react": "16.8.1",
     "bundlesize": "0.17.1",
+    "codecov": "3.1.0",
     "cross-env": "5.2.0",
+    "jest": "24.1.0",
+    "jest-cli": "24.1.0",
     "microbundle": "0.9.0",
     "react": "16.8.0",
     "react-dom": "16.8.0",
+    "react-testing-library": "5.8.0",
+    "ts-jest": "^23.10.5",
     "tslib": "1.9.3",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.17.0",
@@ -36,8 +44,23 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "16.8.0",
-    "react-dom": "16.8.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "testMatch": [
+      "<rootDir>/__tests__/**/?(*.)(test).ts?(x)"
+    ],
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
   },
   "bundlesize": [
     {
