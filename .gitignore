@@ -5,3 +5,4 @@ lib
 .rts2_cache_umd
 .rts2_cache_cjs
 mangle.json
+coverage
