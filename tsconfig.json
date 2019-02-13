@@ -22,5 +22,6 @@
     "lib": ["es6", "dom"],
     "typeRoots": ["typings.d.ts"]
   },
+  "include": ["src/**/*"],
   "files": ["src/index.ts"]
 }
