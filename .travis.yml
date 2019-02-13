@@ -12,7 +12,9 @@ notifications:
 install:
   - yarn
 script:
-  # - npm install codecov -g
-  # - yarn test
+  - npm install codecov -g
+  - yarn test
   - yarn build
   - yarn filesize
+after_success:
+  - codecov
