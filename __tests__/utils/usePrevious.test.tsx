@@ -4,7 +4,7 @@ import usePrevious from '../../src/utils/getPreviousValue';
 describe('getPreviousValue', () => {
   afterEach(() => cleanup());
 
-  it('returns the previous value', () => {
+  it('Returns the previous value', () => {
     let x = 1
     let previous;
     const { rerender } = testHook(() => {

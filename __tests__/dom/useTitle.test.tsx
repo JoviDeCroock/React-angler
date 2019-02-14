@@ -4,7 +4,7 @@ import useTitle from '../../src/dom/title';
 describe('useDocumentTitle', () => {
   afterEach(() => cleanup());
 
-  it('sets the title', () => {
+  it('Sets the title', () => {
     document.title = 'Hello'
     expect(document.title).toBe('Hello')
     testHook(() => {
