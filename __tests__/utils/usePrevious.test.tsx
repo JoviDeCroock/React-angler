@@ -1,7 +1,7 @@
 import { cleanup, testHook } from 'react-testing-library';
 import usePrevious from '../../src/utils/getPreviousValue';
 
-describe('getPreviousValue', () => {
+describe('usePreviousValue', () => {
   afterEach(() => cleanup());
 
   it('Returns the previous value', () => {
