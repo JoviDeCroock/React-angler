@@ -1,5 +1,5 @@
-import { cleanup, testHook } from 'react-testing-library';
-import useWindowSize from '../../src/dom/windowSize';
+import { cleanup, fireEvent, testHook } from 'react-testing-library';
+import useWindowSize from '../../src/dom/useWindowSize';
 
 describe('useWindowSize', () => {
   afterEach(() => cleanup());
@@ -8,10 +8,16 @@ describe('useWindowSize', () => {
     (window.innerHeight as any) = 1080;
     (window.innerWidth as any) = 1920;
     let dimensions;
-    testHook(() => {
+    const { rerender } = testHook(() => {
       dimensions = useWindowSize()
     });
     expect((dimensions as any).width).toBe(1920);
     expect((dimensions as any).height).toBe(1080);
+    (window.innerHeight as any) = 900;
+    (window.innerWidth as any) = 1440;
+    fireEvent(window, new Event('resize'));
+    rerender();
+    expect((dimensions as any).width).toBe(1440);
+    expect((dimensions as any).height).toBe(900);
   })
 });
