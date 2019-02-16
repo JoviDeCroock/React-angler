@@ -1,5 +1,5 @@
 import { cleanup, testHook } from 'react-testing-library';
-import useLockBodyScroll from '../../src/dom/lockBodyScroll';
+import useLockBodyScroll from '../../src/dom/useLockBodyScroll';
 
 describe('useLockBodyScroll', () => {
   afterEach(() => cleanup());
