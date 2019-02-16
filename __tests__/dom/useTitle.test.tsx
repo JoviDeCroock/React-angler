@@ -1,5 +1,5 @@
 import { cleanup, testHook } from 'react-testing-library';
-import useTitle from '../../src/dom/title';
+import useTitle from '../../src/dom/useTitle';
 
 describe('useDocumentTitle', () => {
   afterEach(() => cleanup());
