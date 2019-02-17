@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, testHook } from 'react-testing-library';
-import useWindowSize from '../../src/dom/useWindowSize';
+import { useWindowSize } from '../../src/';
 
 describe('useWindowSize', () => {
   afterEach(() => cleanup());
