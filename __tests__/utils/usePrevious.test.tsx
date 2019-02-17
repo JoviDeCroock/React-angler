@@ -1,5 +1,5 @@
 import { cleanup, testHook } from 'react-testing-library';
-import usePrevious from '../../src/utils/getPreviousValue';
+import { usePreviousValue } from '../../src';
 
 describe('usePreviousValue', () => {
   afterEach(() => cleanup());
@@ -8,7 +8,7 @@ describe('usePreviousValue', () => {
     let x = 1
     let previous;
     const { rerender } = testHook(() => {
-      previous = usePrevious(x)
+      previous = usePreviousValue(x)
     });
     expect(previous).toBeFalsy();
     x = 2;
@@ -23,7 +23,7 @@ describe('usePreviousValue', () => {
     let x: any = { jovi: 23 };
     let previous;
     const { rerender } = testHook(() => {
-      previous = usePrevious(x)
+      previous = usePreviousValue(x)
     });
     expect(previous).toBeFalsy();
     const y = x;
