@@ -1,5 +1,5 @@
 import * as React from "react";
-import useToggle from "../state/toggle";
+import useToggle from "../state/useToggle";
 
 export default function useFocus(): [React.RefObject<any>, boolean] {
   const { setFalse, setTrue, value } = useToggle(false);
