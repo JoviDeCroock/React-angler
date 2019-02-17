@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import useToggle from '../state/toggle';
+import useToggle from '../state/useToggle';
 
 export default function useNetworkStatus(): boolean {
   const { value: status, setTrue: goOnline, setFalse: goOffline } = useToggle(navigator.onLine);
