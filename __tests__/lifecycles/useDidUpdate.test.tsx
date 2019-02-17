@@ -1,5 +1,5 @@
 import { cleanup, testHook } from 'react-testing-library';
-import useDidUpdate from '../../src/lifecycles/onUpdate';
+import { useDidUpdate } from '../../src';
 
 describe('useDidUpdate', () => {
   afterEach(() => cleanup());

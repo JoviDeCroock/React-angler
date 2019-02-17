@@ -1,5 +1,5 @@
 import { cleanup, testHook } from 'react-testing-library';
-import useWillUnMount from '../../src/lifecycles/onUnmount';
+import { useDidUnmount } from '../../src/';
 
 describe('useWillUnMount', () => {
   afterEach(() => cleanup());
@@ -7,7 +7,7 @@ describe('useWillUnMount', () => {
   it('Should only unmount once', () => {
     const x = jest.fn();
     const { unmount } = testHook(() => {
-      useWillUnMount(x)
+      useDidUnmount(x)
     });
     expect(x).toBeCalledTimes(0);
     unmount();

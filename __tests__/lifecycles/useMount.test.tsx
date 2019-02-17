@@ -1,5 +1,5 @@
 import { cleanup, testHook } from 'react-testing-library';
-import useDidMount from '../../src/lifecycles/onMount';
+import { useDidMount } from '../../src';
 
 describe('useDidMount', () => {
   afterEach(() => cleanup());

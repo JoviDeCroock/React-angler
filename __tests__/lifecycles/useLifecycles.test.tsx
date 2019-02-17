@@ -1,5 +1,5 @@
 import { cleanup, testHook } from 'react-testing-library';
-import useLifecycles from '../../src/lifecycles/initLifecycles';
+import { useLifecycles } from '../../src/';
 
 describe('useDidUpdate', () => {
   afterEach(() => cleanup());
