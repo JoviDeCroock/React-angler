@@ -1,6 +1,6 @@
-import onMount from "./onMount";
-import onUnmount from "./onUnmount";
-import onUpdate from "./onUpdate";
+import onMount from "./useOnMount";
+import onUnmount from "./useOnUnmount";
+import onUpdate from "./useOnUpdate";
 
 interface InitLifeCycles {
   didMount?: () => void;
