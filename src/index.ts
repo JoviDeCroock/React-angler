@@ -20,3 +20,4 @@ export { default as useMap } from './state/useMap';
 export { default as useBodyScrollLock } from './dom/useLockBodyScroll';
 export { default as useClickOutside } from './dom/useClickOutside';
 export { default as useIntersectionObserver } from './dom/useScreenObserver';
+export { default as useLocalStorage } from './utils/useLocalStorage';
