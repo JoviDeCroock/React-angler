@@ -65,15 +65,15 @@
   "bundlesize": [
     {
       "path": "./dist/react-angler.module.js",
-      "maxSize": "1.6 kB"
+      "maxSize": "1.75 kB"
     },
     {
       "path": "./dist/react-angler.umd.js",
-      "maxSize": "1.6 kB"
+      "maxSize": "1.75 kB"
     },
     {
       "path": "./dist/react-angler.js",
-      "maxSize": "1.5 kB"
+      "maxSize": "1.75 kB"
     }
   ]
 }
