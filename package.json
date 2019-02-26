@@ -10,15 +10,22 @@
     "functional"
   ],
   "scripts": {
-    "build": "microbundle",
+    "build": "rimraf dist && yarn build:es5 && yarn build:minified && yarn cleanup",
+    "build:minified": "microbundle --define process.env.NODE_ENV=production --name reactAngler --output dist/prod",
+    "build:es5": "microbundle --no-compress --name reactAngler --output dist/",
+    "cleanup": "rimraf .rpt2_cache && rimraf .rts2_cache_cjs && rimraf .rts2_cache_umd && rimraf .rts2_cache_es",
     "filesize": "bundlesize",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env npm run test -- --watch"
   },
   "main": "dist/react-angler.js",
   "browser": "dist/react-angler.umd.js",
+  "umd:main": "dist/react-angler.umd.js",
+  "jsnext:main": "dist/react-angler.module.js",
   "module": "dist/react-angler.module.js",
-  "typings": "lib/index.d.ts",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "license": "MIT",
   "mangle": {
     "regex": "^_"
@@ -64,15 +71,15 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/react-angler.module.js",
+      "path": "./dist/prod/react-angler.module.js",
       "maxSize": "1.75 kB"
     },
     {
-      "path": "./dist/react-angler.umd.js",
+      "path": "./dist/prod/react-angler.umd.js",
       "maxSize": "1.75 kB"
     },
     {
-      "path": "./dist/react-angler.js",
+      "path": "./dist/prod/react-angler.js",
       "maxSize": "1.75 kB"
     }
   ]
