@@ -10,6 +10,34 @@ this little library. This was a good introduction to TypeScript aswell.
 
 Enjoy!
 
+## Installation
+
+**yarn**
+
+```bash
+  yarn add react-angler
+```
+
+**npm**
+
+```bash
+  npm i --save react-angler
+```
+
+**UMD**
+
+_dev_:
+
+```html
+<script src="https://unpkg.com/react-angler@latest/dist/react-angler.umd.js"></script>
+```
+
+_prod_:
+
+```html
+<script src="https://unpkg.com/react-angler@latest/dist/prod/react-angler.umd.js"></script>
+```
+
 ## The hooks
 
 ### component-hooks
